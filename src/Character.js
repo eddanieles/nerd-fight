@@ -11,7 +11,7 @@ class Character extends Component {
     }
   }
   componentDidMount() {
-    this.serverRequest = $.get("http://gateway.marvel.com:80/v1/public/characters/1011334?apikey=2e264257579ec772309983d87144e044", function (response) {
+    this.serverRequest = $.get(`http://gateway.marvel.com:80/v1/public/characters/${this.props.id}?apikey=2e264257579ec772309983d87144e044`, function (response) {
       console.log(response);
       this.setState({
         name: response.data.results[0].name,
