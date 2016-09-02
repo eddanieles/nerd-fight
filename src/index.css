@@ -2,4 +2,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+}
+
+.App {
+  display: inline-flex;
+  width: 100%;
+}
+
+.character_box {
+  width: 80%;
+  text-align: center;
+  margin: auto;
 }

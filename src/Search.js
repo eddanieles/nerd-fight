@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import SuperHeroInfo from './SuperHeroInfo.js';
+import BattleManager from './js/battlemanager.js';
+import characters from './data/characters.js';
+import messages from './data/messages.js';
 
 class Search extends Component {
   constructor(props){
@@ -30,6 +33,8 @@ class Search extends Component {
     })
   }
   render() {
+    BattleManager.addMessages(messages);
+    console.log(BattleManager.statBattle(characters[0], characters[1], 2));
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -39,7 +44,7 @@ class Search extends Component {
           <button>Search</button>
         </form>
 
-        <SuperHeroInfo name={this.state.name} image={this.state.image} description={this.state.description} />
+        <SuperHeroInfo name={this.state.name} image={this.state.image} description={this.state.description} id={this.state.id}/>
       </div>
     )
   }
