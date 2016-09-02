@@ -1,31 +1,47 @@
 import React, { Component } from 'react';
-import Character from './Character';
 import $ from 'jquery';
+import SuperHeroInfo from './SuperHeroInfo.js';
 
 class Search extends Component {
   constructor(props){
     super(props);
     this.state = {
-      character: ''
+      name: "",
+      id:"",
+      image: "",
+      description: ""
     }
   }
-  handleCharacter(e) {
-    this.setState({character: e.target.value});
+  handleSubmit(e){
+    console.log(this.refs.superhero1.value);
+    e.preventDefault();
+    $.ajax({
+        url: `http://gateway.marvel.com:80/v1/public/characters/${this.refs.superhero1.value}?apikey=2e264257579ec772309983d87144e044`,
+        type: 'GET',
+        success: function(response) {
+          console.log(response);
+          this.setState({
+            name: response.data.results[0].name,
+            id: response.data.results[0].id,
+            image: response.data.results[0].thumbnail.path,
+            description: response.data.results[0].description
+          });
+        }.bind(this)
+    })
   }
   render() {
-    return(
+    return (
       <div>
-        <form onSubmit={this.makeServerRequest.bind(this)}>
-          <input type="text" name="character" placeholder="input character ID..." onChange={this.handleCharacter.bind(this)}/>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <label htmlFor="1st Superhero">Search for Superhero!</label>
+          <input type="text" name="superhero1" placeholder="1st Superhero" ref='superhero1'/>
+          <br />
           <button>Search</button>
         </form>
+
+        <SuperHeroInfo name={this.state.name} image={this.state.image} description={this.state.description} />
       </div>
     )
-  }
-  makeServerRequest(e){
-    // <Character id={this.state.character}/>
-    console.log("Character ID: " + this.state.character);
-    event.preventDefault();
   }
 }
 
