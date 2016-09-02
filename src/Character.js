@@ -5,24 +5,12 @@ class Character extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: "",
-      id:"",
-      image: ""
+      name: this.props.name,
+      id: this.props.id,
+      image: this.props.image
     }
   }
-  componentDidMount() {
-    this.serverRequest = $.get(`http://gateway.marvel.com:80/v1/public/characters/${this.props.id}?apikey=2e264257579ec772309983d87144e044`, function (response) {
-      console.log(response);
-      this.setState({
-        name: response.data.results[0].name,
-        id: response.data.results[0].id,
-        image: response.data.results[0].thumbnail.path
-      });
-    }.bind(this));
-  }
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
+
   render() {
     return (
       <div>

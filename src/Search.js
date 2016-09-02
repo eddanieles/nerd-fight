@@ -6,26 +6,43 @@ class Search extends Component {
   constructor(props){
     super(props);
     this.state = {
-      character: ''
+      userInput: ''
     }
   }
-  handleCharacter(e) {
-    this.setState({character: e.target.value});
+
+  handleChange(event) {
+    this.setState({userInput: event.target.value});
   }
+
+  getServerData() {
+    $.get(`http://gateway.marvel.com:80/v1/public/characters/${this.state.userInput}?apikey=2e264257579ec772309983d87144e044`, function (response) {
+      console.log(response);
+      this.setState({
+        name: response.data.results[0].name,
+        id: response.data.results[0].id,
+        image: response.data.results[0].thumbnail.path
+      });
+    }.bind(this));
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    this.getServerData();
+  }
+
   render() {
     return(
       <div>
-        <form onSubmit={this.makeServerRequest.bind(this)}>
-          <input type="text" name="character" placeholder="input character ID..." onChange={this.handleCharacter.bind(this)}/>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input type="text" name="character" placeholder="input character ID..." onChange={this.handleChange.bind(this)}/>
           <button>Search</button>
         </form>
+        <Character
+          name={this.state.name}
+          id={this.state.id}
+          image={this.state.image}/>
       </div>
     )
-  }
-  makeServerRequest(e){
-    // <Character id={this.state.character}/>
-    console.log("Character ID: " + this.state.character);
-    event.preventDefault();
   }
 }
 
