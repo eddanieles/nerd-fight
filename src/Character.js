@@ -2,21 +2,13 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 
 class Character extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      name: this.props.name,
-      id: this.props.id,
-      image: this.props.image
-    }
-  }
 
   render() {
     return (
       <div>
-        <p>Name: {this.state.name}</p>
-        <p>Character ID: {this.state.id}</p>
-        <p><img src={`${this.state.image}/portrait_incredible.jpg`} alt=""/></p>
+        <p>Name: {this.props.name}</p>
+        <p>Character ID: {this.props.id}</p>
+        <img src={`${this.props.image}/portrait_incredible.jpg`} alt=""/>
       </div>
       );
     }
