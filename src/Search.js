@@ -16,7 +16,7 @@ class Search extends Component {
     console.log(this.refs.superhero1.value);
     e.preventDefault();
     $.ajax({
-        url: `http://gateway.marvel.com:80/v1/public/characters/${this.refs.superhero1.value}?apikey=2e264257579ec772309983d87144e044`,
+        url: `http://gateway.marvel.com:80/v1/public/characters?name=${this.refs.superhero1.value}&apikey=2e264257579ec772309983d87144e044`,
         type: 'GET',
         success: function(response) {
           console.log(response);
