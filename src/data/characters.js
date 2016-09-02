@@ -1,4 +1,4 @@
-[
+var characters = [
     {
         "name": "3-D Man",
         "id": 1011334,
@@ -8947,4 +8947,6 @@
         "speed": 1,
         "strength": 1
     }
-]
+];
+
+export default characters;

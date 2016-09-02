@@ -36,7 +36,7 @@ var BattleManager = ( function( window, undefined ){
 
             for( var i = 0, len = arr.length; i < len; i++ ){
 
-                if( func( arr[ i ], i, arr ) ){ arr2.push( arr[ i ] ); }  
+                if( func( arr[ i ], i, arr ) ){ arr2.push( arr[ i ] ); }
             }
 
             return arr2;
@@ -131,7 +131,7 @@ var BattleManager = ( function( window, undefined ){
 
             if( this.armor < 0 ){ this.armor = 0; }
             this.armor = Math.floor( this.armor + 2 );
-            
+
             this.assaultStrength = 0.6 * this.source.strength + 0.4 * this.source.speed;
             this.assaultSkill    = ramp( 0.7 * this.source.fighting + 0.3 * this.source.speed );
             this.toughness       = 0.3 * this.source.strength + 0.7 * this.source.durability;
@@ -139,7 +139,7 @@ var BattleManager = ( function( window, undefined ){
             this.attacks           = 1 + Math.floor( ( 0.2 * this.source.fighting + 0.8 * this.source.speed ) * 0.6 );
             this.wounds            = Math.floor( 10 * ramp( remap( this.source.durability, 6, 10 ) ) );
             this.ballisticStrength = 0.9 * this.source.energy + 0.1 * this.source.intelligence;
-            this.ballisticSkill    = ramp( 0.8 * this.source.energy + 0.1 * this.source.fighting + 0.1 * this.source.intelligence ); 
+            this.ballisticSkill    = ramp( 0.8 * this.source.energy + 0.1 * this.source.fighting + 0.1 * this.source.intelligence );
         };
 
     //simple messenger object that manages the fight messages by type
@@ -203,7 +203,7 @@ var BattleManager = ( function( window, undefined ){
                     //and will always attack first
                     c1  = ix ? fighter1 : fighter2,
                     c2  = ix ? fighter2 : fighter1;
-                
+
                 //holds all of the messages and data from the battle
                 this.fightdata = [];
 
@@ -268,7 +268,7 @@ var BattleManager = ( function( window, undefined ){
             takeDamage : function takeDamage( defender, damage ){
 
                 if( damage === 0 || damage === undefined ){ return false; }
-                
+
                 defender.wounds -= damage;
                 return true;
             },
@@ -310,7 +310,7 @@ var BattleManager = ( function( window, undefined ){
 
                 //returns the number of successful hits by the attacker against the defender
                 hits = this.assaultHitsRoll( attacker, defender, 6 );
-                
+
                 //if no hits, issue a message and return 0 damage
                 if( hits <= 0 ){
                     this.message( "assault:failed:hit", attacker, defender );
@@ -338,7 +338,7 @@ var BattleManager = ( function( window, undefined ){
             //'attacker' is the Fighter object attacking, 'faces' is the number of faces on the dice rolled
             ballisticHitsRoll : function ballisticHitsRoll( attacker, faces ){
 
-                
+
                 return filter( dice.toss( attacker.attacks, faces ), function( thr, index, arr ){
 
                         return thr >= attacker.ballisticSkill;
@@ -407,7 +407,7 @@ var BattleManager = ( function( window, undefined ){
 
                 var fighter1 = new Fighter( fighter1Stats ),
                     fighter2 = new Fighter( fighter2Stats );
-                
+
                 return BattleManager.battle( fighter1, fighter2 );
             },
 
@@ -440,11 +440,11 @@ var BattleManager = ( function( window, undefined ){
                     else{
 
                         returnObj[ sample.winner.name === returnObj.fighter1.name ? "fighter1" : "fighter2" ].wins += 1;
-                    } 
+                    }
 
                     returnObj.data.push( sample );
                 }
-                
+
                 return returnObj;
             },
 
@@ -454,15 +454,7 @@ var BattleManager = ( function( window, undefined ){
                 messenger.hasMessages = true;
             }
         };
-    
+
 } )( window, undefined );
 
-
-
-
-
-
-
-
-
-
+export default BattleManager;

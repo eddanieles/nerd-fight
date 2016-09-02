@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Character from './Character';
 import $ from 'jquery';
+import BattleManager from './js/battlemanager.js';
+import characters from './data/characters.js';
+import messages from './data/messages.js';
+
+console.log(characters);
+BattleManager.addMessages(messages);
+console.log( "statBattle() ", BattleManager.statBattle(characters[0], characters[1], 100));
+
 
 class Search extends Component {
   constructor(props){
@@ -15,7 +23,7 @@ class Search extends Component {
   }
 
   getServerData() {
-    $.get(`http://gateway.marvel.com:80/v1/public/characters/${this.state.userInput}?apikey=2e264257579ec772309983d87144e044`, function (response) {
+    $.get(`http://gateway.marvel.com/v1/public/characters?name=${this.state.userInput}&apikey=2e264257579ec772309983d87144e044`, function (response) {
       console.log(response);
       this.setState({
         name: response.data.results[0].name,
@@ -23,6 +31,10 @@ class Search extends Component {
         image: response.data.results[0].thumbnail.path
       });
     }.bind(this));
+  }
+
+  getCharacterId(userSearch) {
+    return characters.filter(character => character.name.includes(userSearch))[0];
   }
 
   handleSubmit(event){

@@ -7,7 +7,6 @@ class Character extends Component {
     return (
       <div>
         <p>Name: {this.props.name}</p>
-        <p>Character ID: {this.props.id}</p>
         <img src={`${this.props.image}/portrait_incredible.jpg`} alt=""/>
       </div>
       );
