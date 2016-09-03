@@ -3,11 +3,17 @@ import './App.css';
 import Search from './Search';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      characterArray: []
+    };
+  }
   render() {
     return (
       <div className="App">
-        <Search/>
-        <Search/>
+        <Search characterArray={this.state.characterArray}/>
+        <Search characterArray={this.state.characterArray}/>
       </div>
     );
   }

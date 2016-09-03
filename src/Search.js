@@ -46,7 +46,7 @@ class Search extends Component {
         </form>
 
         <SuperHeroInfo name={this.state.name} image={this.state.image} description={this.state.description} id={this.state.id}/>
-        <FilterCharacter id={this.state.id} />
+        <FilterCharacter id={this.state.id} characterArray={this.props.characterArray}/>
       </div>
     )
   }
