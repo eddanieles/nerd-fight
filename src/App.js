@@ -18,7 +18,7 @@ class App extends Component {
           <Search characterArray={this.state.characterArray}/>
         </div>
 
-        <Battle />
+        <Battle characterArray={this.state.characterArray}/>
       </div>
     );
   }
