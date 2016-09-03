@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Character from './Character';
 
 
-class Search extends Component {
+class Searchtwo extends Component {
  constructor(props){
    super(props);
    this.state = {
@@ -14,10 +14,10 @@ class Search extends Component {
    }
  }
  handleSubmit(e){
-   console.log(this.refs.superhero1.value);
+   console.log(this.refs.superhero2.value);
    e.preventDefault();
    $.ajax({
-       url: `http://gateway.marvel.com:80/v1/public/characters?name=${this.refs.superhero1.value}&apikey=2e264257579ec772309983d87144e044`,
+       url: `http://gateway.marvel.com:80/v1/public/characters?name=${this.refs.superhero2.value}&apikey=2e264257579ec772309983d87144e044`,
        type: 'GET',
        success: function(response) {
          console.log(response);
@@ -29,20 +29,21 @@ class Search extends Component {
        }.bind(this)
    })
  }
+
  render() {
    return (
      <div>
        <form onSubmit={this.handleSubmit.bind(this)}>
-         <label htmlFor="1st Superhero">Search for Superhero :</label>
-         <input type="text" name="superhero1" placeholder="1st Superhero" ref='superhero1'/>
+         <label htmlFor="2nd Superhero">Search for Superhero!</label>
+         <input type="text" name="superhero2" placeholder="2nd Superhero" ref='superhero2'/>
          <br />
          <button>Search</button>
        </form>
 
-       <Character name={this.state.name} image={this.state.image} />
+       <Character name={this.state.name} image={this.state.image} description={this.state.description} />
      </div>
    )
  }
 }
 
-export default Search
+export default Searchtwo

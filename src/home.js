@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import Search from './Search';
+import Searchtwo from './Searchtwo';
 
 
 
 class Home extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      characters: []
+    };
+  }
+
   render(){
     return (
       <div>
@@ -14,7 +23,8 @@ class Home extends Component {
         <div className="Description">
           <p id="description">Let's Get Started!</p>
         </div>
-        <Search/>
+        <Search characters={this.state.characters}/>
+        <Searchtwo characters={this.state.characters}/>
       </div>
     );
   }
