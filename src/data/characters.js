@@ -146,12 +146,12 @@ var characters = [
         "name": "Ajaxis",
         "id": 1010870,
         "pageId": "8513",
-        "durability": 1,
-        "energy": 1,
-        "fighting": 1,
-        "intelligence": 1,
-        "speed": 1,
-        "strength": 1
+        "durability": 9,
+        "energy": 9,
+        "fighting": 9,
+        "intelligence": 9,
+        "speed": 9,
+        "strength": 9
     },
     {
         "name": "Albion",

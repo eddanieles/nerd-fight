@@ -37,10 +37,10 @@ class Search extends Component {
     // BattleManager.addMessages(messages);
     // console.log(BattleManager.statBattle(characters[0], characters[1], 2));
     return (
-      <div>
+      <div className="players">
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label htmlFor="1st Superhero">Search for Superhero!</label>
-          <input type="text" name="superhero1" placeholder="1st Superhero" ref='superhero1'/>
+          <label htmlFor="1st Superhero">Choose Your Hero</label>
+          <input type="text" name="superhero1" placeholder="" ref='superhero1'/>
           <br />
           <button>Search</button>
         </form>
