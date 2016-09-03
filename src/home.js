@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
+import Search from './Search';
+
 
 
 class Home extends Component {
   render(){
     return (
-      <div className="Home">
+      <div>
         <header>
-          <h1>Nerd Combat!</h1>
-          <img src={`https://marvelheroes.com/sites/default/files/header-heroes.png`} alt="Marvel Characters"/>
+          <h1 id="app-name">Nerd Combat!</h1>
+          <img id="home-image" src={`https://marvelheroes.com/sites/default/files/header-heroes.png`} alt="Marvel Characters"/>
         </header>
         <div className="Description">
-          <h2>Nerd Combat is an all out brawl!</h2>
-          <p>Are you ready to combat like a real villain?!</p>
-          <p>Let's Get Started!</p>
+          <p id="description">Let's Get Started!</p>
         </div>
-        <button type="text">START</button>
+        <Search/>
       </div>
     );
   }

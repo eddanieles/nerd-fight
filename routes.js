@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import {Router, Route, hashHistory} from 'react-router';
 
 class Routes extends Component {
@@ -15,4 +15,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes;
+export default Routes
