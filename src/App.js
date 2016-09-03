@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './Search';
+import Battle from './Battle';
 
 class App extends Component {
   constructor(){
@@ -11,9 +12,13 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <Search characterArray={this.state.characterArray}/>
-        <Search characterArray={this.state.characterArray}/>
+      <div>
+        <div className="App">
+          <Search characterArray={this.state.characterArray}/>
+          <Search characterArray={this.state.characterArray}/>
+        </div>
+
+        <Battle />
       </div>
     );
   }
