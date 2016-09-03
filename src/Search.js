@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import SuperHeroInfo from './SuperHeroInfo.js';
+import BattleManager from './js/battlemanager.js';
+import characters from './data/characters.js';
+import messages from './data/messages.js';
+import FilterCharacter from './FilterCharacter.js'
 
 class Search extends Component {
   constructor(props){
@@ -13,13 +17,13 @@ class Search extends Component {
     }
   }
   handleSubmit(e){
-    console.log(this.refs.superhero1.value);
+    // console.log(this.refs.superhero1.value);
     e.preventDefault();
     $.ajax({
         url: `http://gateway.marvel.com:80/v1/public/characters?name=${this.refs.superhero1.value}&apikey=2e264257579ec772309983d87144e044`,
         type: 'GET',
         success: function(response) {
-          console.log(response);
+          // console.log(response);
           this.setState({
             name: response.data.results[0].name,
             id: response.data.results[0].id,
@@ -30,6 +34,8 @@ class Search extends Component {
     })
   }
   render() {
+    // BattleManager.addMessages(messages);
+    // console.log(BattleManager.statBattle(characters[0], characters[1], 2));
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -39,7 +45,8 @@ class Search extends Component {
           <button>Search</button>
         </form>
 
-        <SuperHeroInfo name={this.state.name} image={this.state.image} description={this.state.description} />
+        <SuperHeroInfo name={this.state.name} image={this.state.image} description={this.state.description} id={this.state.id}/>
+        <FilterCharacter id={this.state.id} characterArray={this.props.characterArray}/>
       </div>
     )
   }

@@ -8948,3 +8948,5 @@ var characters = [
         "strength": 1
     }
 ]
+
+export default characters
