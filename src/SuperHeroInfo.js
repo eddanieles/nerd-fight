@@ -8,7 +8,7 @@ class SuperHeroInfo extends Component {
         <p>Name: {this.props.name}</p>
         <p><img src={`${this.props.image}/portrait_incredible.jpg`} alt=""/></p>
         <p>Description: {this.props.description}</p>
-        <p>ID: {this.props.id}</p>
+        {/* <p>ID: {this.props.id}</p> */}
       </div>
     );
   }
