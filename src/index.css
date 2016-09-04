@@ -1,8 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: impact;
   width: 100%;
+  background: #69A197;
+  color: #710000;
 }
 
 #root {
@@ -18,4 +20,45 @@ body {
   width: 80%;
   text-align: center;
   margin: auto;
+  color: #F4E409;
+}
+.navbar{
+  background: url("http://cdn.disneycareers.com/managed/WDCCP0897C_L3_Marvel_About_Marvel_GUI_header.jpg")
+}
+.title{
+  text-align: center;
+}
+button{
+  color: #A63C06;
+  background: #EEBA0B;
+  border: none;
+
+}
+.battleSend:active{
+  background: #69A197;
+}
+.results{
+  color: #E9CE2C;
+  text-align: center;
+}
+.results p{
+  font-size: 32px;
+}
+input{
+  background: #f4d58d;
+}
+.players{
+  margin: auto;
+}
+.messages{
+  background: #373E40;
+  color: #BF211E;
+  font-size: 20px;
+  max-height: 250px;
+  max-width: 80%;
+  margin: 20px auto;
+  overflow: scroll;
+  text-align: left;
+  line-height: 25px;
+
 }

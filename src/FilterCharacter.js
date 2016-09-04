@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import characters from './data/characters.js';
 
 class FilterCharacter extends Component {

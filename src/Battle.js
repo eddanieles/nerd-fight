@@ -37,14 +37,13 @@ class Battle extends Component {
   }
   render() {
     return(
-      <div>
-        <h3>Click button below to start fight.</h3>
-        <button onClick={this.handleClick.bind(this)}>Fight!</button>
-        <p>Winner is: {this.state.winner}</p>
-        <p>Loser is: {this.state.loser}</p>
-        <ul>
+      <div className="results">
+        <button onClick={this.handleClick.bind(this)}>Let the Fight Begin!</button>
+        <ol className="messages">
           {this.state.fightMessages}
-        </ul>
+        </ol>
+        <p>The Winner Is {this.state.winner}</p>
+        {/*<p>Loser is: {this.state.loser}</p>*/}
       </div>
     );
   }

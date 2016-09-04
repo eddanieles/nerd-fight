@@ -15,6 +15,7 @@ class App extends Component {
       <div>
         <div className="App">
           <Search characterArray={this.state.characterArray}/>
+          <h1>Vs</h1>
           <Search characterArray={this.state.characterArray}/>
         </div>
 
