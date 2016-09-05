@@ -6,7 +6,7 @@ class SuperHeroInfo extends Component {
       <div className="character_box">
         <h3> {this.props.name}</h3>
         <p><img src={`${this.props.image}/portrait_incredible.jpg`} alt=""/></p>
-         {/*<p>Description: {this.props.description}</p>*/}
+        <p>{this.props.description}</p>
         {/* <p>ID: {this.props.id}</p> */}
       </div>
     );

@@ -13,7 +13,7 @@ class FilterCharacter extends Component {
     e.preventDefault();
     let superhero = characters.filter(character => character.id === this.props.id);
     console.log(superhero[0]);
-    this.props.characterArray.push(superhero[0]);
+    this.props.characterArray.unshift(superhero[0]);
     console.log(this.props.characterArray);
     this.setState({
       fighterName: superhero[0].name,
