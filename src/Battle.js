@@ -20,12 +20,12 @@ class Battle extends Component {
     console.log(battleData);
     if (battleData.winner === "draw") {
       this.setState({
-        winner: "draw",
-        loser: "draw"
+        winner: "This fight is a draw.",
+        loser: "This fight is a draw."
       })
     } else {
       this.setState({
-        winner: battleData.winner.name,
+        winner: "The winner is " + battleData.winner.name + "!",
         loser: battleData.loser.name
       })
     };
@@ -42,7 +42,7 @@ class Battle extends Component {
         <ol className="messages">
           {this.state.fightMessages}
         </ol>
-        <p>The Winner Is {this.state.winner}</p>
+        <p>{this.state.winner}</p>
         {/*<p>Loser is: {this.state.loser}</p>*/}
       </div>
     );
